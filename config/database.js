@@ -2,8 +2,6 @@
 
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
-const Url = require('url-parse')
-const DATABASE_URL = new Url(Env.get('DATABASE_URL'))
 
 /** @type {import('@adonisjs/ignitor/src/Helpers')} */
 const Helpers = use('Helpers')
@@ -18,7 +16,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'pg'),
+  connection: Env.get('DB_CONNECTION', ''),
 
   /*
   |--------------------------------------------------------------------------
@@ -75,12 +73,12 @@ module.exports = {
  pg: {
   client: 'pg',
   connection: {
-    host: Env.get('DB_HOST', 'DATABASE_URL.hostname'),
-    port: Env.get('DB_PORT', 'DATABASE_URL.port'),
-    user: Env.get('DB_USER', 'DATABASE_URL.username'),
-    password: Env.get('DB_PASSWORD', 'DATABASE_URL.password'),
-    database: Env.get('DB_DATABASE', 'DATABASE_URL.pathname.substr(1)')
-  },
-  debug: Env.get('DB_DEBUG', false)
+    host: 'ec2-35-172-85-250.compute-1.amazonaws.com',
+    port: 5432,
+    user: 'oqruqgubkdmolk',
+    password: '47c01ac45eb67b96b1c553d9cb1d081f9806f52b7e499723208411b290bfa0c3',
+    database: 'dfh77kbva575la',
+    ssl: false
+  }
 }
 }
